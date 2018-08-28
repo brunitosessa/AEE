@@ -4,6 +4,7 @@
   "EMAIL": "Email",
   "LOGIN": "Iniciar sesión",
   "SIGNUP": "Registrarse",
+  "CELLPHONE": "Celular",
 
   "TAB1_TITLE": "Items",
   "TAB2_TITLE": "Buscar",
@@ -11,14 +12,19 @@
 
   "MAP_TITLE": "Mapa",
 
-  "TUTORIAL_SLIDE1_TITLE": "Bienvenido/a al Ionic Super Starter",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "El <b>Ionic Super Starter</b> es un starter de Ionic completo con muchas páginas preconstruidas y mejores prácticas.",
+  "TUTORIAL_SKIP_BUTTON": "Saltar",
+  "TUTORIAL_CONTINUE_BUTTON": "Continuar",
 
-  "TUTORIAL_SLIDE2_TITLE": "Cómo usar el Super Starter",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "Monta los varios tipos de página que quieras y quita los que no. Hemos incluido muchas estructuras de página comunes en apps móviles, como páginas de inicio de sesión y registro, pestañas, y esta página de tutorial.",
+  "TUTORIAL_SLIDE1_TITLE": "Bienvenido/a a ARMA EL EQUIPO",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "Sumate a <b>Arma el Equipo</b>. La nueva red social deportiva donde podrás organizar eventos deportivos con tus amigos, encontrar miles de personas para realizar cualquier tipo de deporte, así como miles de lugares donde realizarlos",
 
-  "TUTORIAL_SLIDE3_TITLE": "Empezando",
-  "TUTORIAL_SLIDE3_DESCRIPTION": "¿Necesitas ayuda? Échale un vistazo al README del Super Starter para ver el tutorial completo.",
+  "TUTORIAL_SLIDE2_TITLE": "Agregá a tus amigos y comenzá a divertirte",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "En la opción de <b>Mis amigos</b> podrás buscar y agregar a tus amigos a la aplicación",
+
+  "TUTORIAL_SLIDE3_TITLE": "Crea un evento o sumate a uno público",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "Una vez tengas a tus amigos, podrás crear nuevos eventos privados e invitarlos a participar, así como también encontrar miles de eventos públicos a los cuales sumarte.",
+
+  "TUTORIAL_SLIDE4_TITLE": "¿Listo para empezar?",
 
   "SETTINGS_TITLE": "Ajustes",
   "SETTINGS_OPTION1": "Opción 1",
@@ -29,6 +35,9 @@
   "SETTINGS_PAGE_PROFILE": "Editar Perfil",
 
   "WELCOME_TITLE": "Bienvenido/a",
+
+  "WELCOME_INTRO": "Bienvenido a Arma el Equipo",
+  "WELCOME_DESCRIPTION":  "Por favor iniciá sesión o create una cuenta",
 
   "LOGIN_TITLE": "Iniciar sesión",
   "LOGIN_ERROR": "No se ha podido iniciar sesión. Por favor revisa la información de la cuenta e inténtalo de nuevo.",
