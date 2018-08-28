@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import { Tab1Root, Tab2Root, Tab3Root } from '../';
 
 @IonicPage()
 @Component({
@@ -7,38 +9,46 @@ import { IonicPage, NavController } from 'ionic-angular';
   templateUrl: 'cards.html'
 })
 export class CardsPage {
-  cardItems: any[];
+	//Para las tabs
+	tab1Root: any = Tab1Root;
+	tab2Root: any = Tab2Root;
+	tab3Root: any = Tab3Root;
+	tab1Title = "Mis eventos";
+	tab2Title = " ";
+	tab3Title = " ";
 
-  constructor(public navCtrl: NavController) {
-    this.cardItems = [
-      {
-        user: {
-          avatar: 'assets/img/marty-avatar.png',
-          name: 'Marty McFly'
-        },
-        date: 'November 5, 1955',
-        image: 'assets/img/advance-card-bttf.png',
-        content: 'Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.',
-      },
-      {
-        user: {
-          avatar: 'assets/img/sarah-avatar.png.jpeg',
-          name: 'Sarah Connor'
-        },
-        date: 'May 12, 1984',
-        image: 'assets/img/advance-card-tmntr.jpg',
-        content: 'I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.'
-      },
-      {
-        user: {
-          avatar: 'assets/img/ian-avatar.png',
-          name: 'Dr. Ian Malcolm'
-        },
-        date: 'June 28, 1990',
-        image: 'assets/img/advance-card-jp.jpg',
-        content: 'Your scientists were so preoccupied with whether or not they could, that they didn\'t stop to think if they should.'
-      }
-    ];
+	
+	//La lista de eventos
+	cardItems: any[];
 
-  }
+	constructor(public navCtrl: NavController, public translateService: TranslateService) {
+		translateService.get(['TAB1_TITLE', 'TAB2_TITLE', 'TAB3_TITLE']).subscribe(values => {
+			this.tab1Title = values['TAB1_TITLE'];
+			this.tab2Title = values['TAB2_TITLE'];
+			this.tab3Title = values['TAB3_TITLE'];
+		});
+
+		this.cardItems = [
+		{
+			user: {
+				avatar: 'assets/img/marty-avatar.png',
+				name: 'Fulbito de los pibes'
+			},
+				date: 'Miércoles 5 de Noviembre, 22:00 hs',
+				image: 'assets/img/advance-card-bttf.png',
+				content: 'La cancha de pepe',
+				address: 'Calle 8 numer 1333, La Plata',
+		},
+		{
+			user: {
+				avatar: 'assets/img/sarah-avatar.png.jpeg',
+				name: 'Sarah Connor'
+			},
+				date: 'May 12, 1984',
+				image: 'assets/img/advance-card-tmntr.jpg',
+				content: 'I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.'
+		},
+		];
+
+	}
 }

@@ -9,6 +9,10 @@
 
 <ion-content>
 
+	<ion-tabs>
+		<ion-tab [root]="tab1" tabTitle="Mis eventos" tabIcon="home"></ion-tab>
+	</ion-tabs>
+
   <ion-card *ngFor="let item of cardItems">
 
     <ion-item>
@@ -21,9 +25,13 @@
 
     <img [src]="item.image">
 
-    <ion-card-content>
-      <p>{{item.content}}</p>
-    </ion-card-content>
+	<ion-card-content>
+		<ion-label Stacked>Ubicacion</ion-label>
+		<p><b>{{item.content}}</b></p>
+
+		<ion-label Stacked>Dirección</ion-label>
+		<p><b>{{item.address}}</b></p>
+	</ion-card-content>
 
     <ion-row>
       <ion-col>
