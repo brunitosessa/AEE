@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController } from 'ionic-angular';
+
 import { Tab1Root, Tab2Root, Tab3Root } from '../';
 
 @IonicPage()
@@ -13,7 +14,7 @@ export class CardsPage {
 	tab1Root: any = Tab1Root;
 	tab2Root: any = Tab2Root;
 	tab3Root: any = Tab3Root;
-	tab1Title = "Mis eventos";
+	tab1Title = " ";
 	tab2Title = " ";
 	tab3Title = " ";
 
@@ -49,6 +50,5 @@ export class CardsPage {
 				content: 'I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.'
 		},
 		];
-
 	}
 }
