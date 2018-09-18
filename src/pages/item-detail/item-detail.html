@@ -1,18 +1,43 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ item.name }}</ion-title>
+    <ion-title>{{ user.nombre }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
-  </div>
+	<div class="item-profile" [style.background-image]="'url(' + user.foto + ')'">
+		<button ion-button round icon-start color="green">{{user.nombre}} {{user.apellido}}</button>
+	</div>
 
-  <div class="item-detail" padding>
-    <h2>{{item.name}}</h2>
-    <p>{{item.about}}</p>
-  </div>
+	<div class="item-detail" padding>
+		<ion-label stacked>{{ 'Nombre y apellido' | translate }}</ion-label>
+		<p><b>{{user.nombre}} {{user.apellido}}</b></p>
+
+		<ion-label stacked>{{ 'Correo electrónico' | translate }}</ion-label>
+		<p><b>{{user.email}}</b></p>
+
+		<ion-label stacked>{{ 'Ubicación' | translate }}</ion-label>
+		<p><b>{{user.pais}} - {{user.localidad}}</b></p>
+
+		<ion-label stacked>{{ 'Es miembro desde' | translate }}</ion-label>
+		<p><b>{{user.miembroDesde}}</b></p>
+
+		<h4>{{ 'Eventos públicos en los que participa' | translate }}</h4>
+
+		<ion-scroll scrollX="true">
+        		<ion-card *ngFor="let event of events">
+	                        <ion-avatar item-start>
+					<img [src]="'https://puntoslash.com.ar/desarrollo/images/eventos/'+ event.id + '.jpg'">
+				</ion-avatar>
+
+				<ion-card-content>
+					Evento<br>
+					<b>{{ event.nombre }}</b>
+				</ion-card-content>
+			</ion-card>
+		</ion-scroll>
+	</div>
 </ion-content>

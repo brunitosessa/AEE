@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { Items } from '../../providers';
+import { WsProvider } from '../../providers/ws/ws';
 
 @IonicPage()
 @Component({
@@ -9,10 +8,24 @@ import { Items } from '../../providers';
   templateUrl: 'item-detail.html'
 })
 export class ItemDetailPage {
-  item: any;
+	user: any;
+	events: any=[];
 
-  constructor(public navCtrl: NavController, navParams: NavParams, items: Items) {
-    this.item = navParams.get('item') || items.defaultItem;
-  }
+	constructor(public navCtrl: NavController, navParams: NavParams, public ws: WsProvider ) {
+		this.user = navParams.get('user')
+	}
+
+        getPublicEvents() {
+                this.ws.getPublicEvents()
+                .then(data => {
+                        this.events = data;
+                });
+	}
+
+	ionViewDidLoad() {
+		this.getPublicEvents();
+	}
+
+
 
 }

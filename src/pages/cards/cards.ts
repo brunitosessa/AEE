@@ -39,6 +39,7 @@ export class CardsPage {
 				image: 'assets/img/advance-card-bttf.png',
 				content: 'La cancha de pepe',
 				address: 'Calle 8 numer 1333, La Plata',
+				status: 'El evento se juega y está completo',
 		},
 		{
 			user: {
