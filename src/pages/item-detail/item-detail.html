@@ -25,8 +25,14 @@
 		<ion-label stacked>{{ 'Es miembro desde' | translate }}</ion-label>
 		<p><b>{{user.miembroDesde}}</b></p>
 
-		<h4>{{ 'Eventos públicos en los que participa' | translate }}</h4>
 
+		<br>
+
+		<ion-row text-center nowrap>
+			 <ion-col>
+				 <b>{{ 'Eventos públicos en los que participa' | translate }}</b>
+			 </ion-col>
+		 </ion-row>
 		<ion-scroll scrollX="true">
         		<ion-card *ngFor="let event of events">
 	                        <ion-avatar item-start>
