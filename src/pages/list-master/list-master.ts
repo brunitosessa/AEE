@@ -24,13 +24,12 @@ export class ListMasterPage {
 
 		this.ws.getUsers()
 		.then(data => {
-			this.users = data;
 			loading.dismiss();
+			this.users = data;
 		});
 	}
 
 	searchUsers(ev: any) {
-		
 		// set val to the value of the searchbar
 		const val = ev.target.value;
 
