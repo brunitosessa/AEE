@@ -16,61 +16,27 @@
 	</ion-tabs> 
 	-->
 
-	<ion-card *ngFor="let item of cardItems">
-		<ion-item>
-			<ion-avatar item-start>
-				<img [src]="item.user.avatar">
-			</ion-avatar>
-
-			<h2>{{item.user.name}}</h2>
-			<p>{{item.date}}</p>
-
-			<button ion-button item-end><ion-icon name="more"></ion-icon></button>
-		</ion-item>
-
-
+	<ion-card *ngFor="let item of cardItems" (click)="openEvent(item)" >
 		<div class="imagen">
 			<button ion-button round icon-start color="green"><ion-icon name="checkmark"></ion-icon>Vas al evento</button>
 			<img height="180px" [src]="item.image">
 		</div>
 
 		<ion-card-content>
-			<ion-fab top right>
-				<button ion-fab mini><ion-icon name="pin"></ion-icon></button>
-			</ion-fab>
-
+			 <ion-card-title>
+				<b>{{item.user.name}}</b>
+				<p>{{item.date}}</p>
+				<ion-fab bottom right>
+					<button ion-fab mini><ion-icon name="pin"></ion-icon></button>
+				</ion-fab>
+			</ion-card-title>
+	
 			<ion-label Stacked>Ubicacion</ion-label>
 			<p><b>{{item.content}}</b></p>
-	
-			<ion-label Stacked>Dirección</ion-label>
-			<p><b>{{item.address}}</b></p>
-
+		
 			<ion-label Stacked color="green">Estado</ion-label>
 			<p ion-text color="green"><b>{{item.status}}</b></p>
-
 		</ion-card-content>
-
-		<ion-row>
-			<ion-col>
-				<button ion-button block color="green" icon-start disabled>
-					<ion-icon name='checkmark'></ion-icon>
-					VOY
-				</button>
-			</ion-col>
-	
-			<ion-col>
-				<button ion-button block color="danger" icon-start>
-					<ion-icon name='close'></ion-icon>
-					NO VOY
-				</button>
-			</ion-col>
-	
-			<ion-col center text-center>
-				<button ion-button block color="secondary" icon-start>
-					<ion-icon name='people'></ion-icon>
-					INVITAR GENTE
-				</button>
-			</ion-col>
-		</ion-row>
 	</ion-card>
+
 </ion-content>

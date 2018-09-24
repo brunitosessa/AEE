@@ -1,0 +1,48 @@
+page-event-detail {
+
+	//Foto del usuario grande
+	.item-profile {
+		width: 100%;
+		background-position: center center;
+		background-size: cover;
+		height: 250px;
+		position: relative;
+	}
+
+	//Boton circular con el nombre del usuario
+	.item-profile>button {
+		position: absolute;
+		right: 20px;
+		bottom: -18px;
+		z-index: 1000;
+	}
+
+	.item-detail {
+		width: 100%;
+		background: white;
+		position: absolute;
+	}
+
+	ion-scroll {
+		height: 300px;
+		white-space: nowrap;
+	}
+
+	ion-card {
+		width: 160px !important;
+		display: inline-block;
+		position: relative;
+	}
+
+	ion-avatar>img {
+		height: 100px;
+	}
+
+	ion-card-content {
+		padding-right: 0px;
+	}
+
+	ion-row {
+		background-color: #f2f2f2;
+	}
+}

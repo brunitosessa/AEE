@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import { Event } from '../../models/event';
 
 import { Tab1Root, Tab2Root, Tab3Root } from '../';
 
@@ -52,4 +53,10 @@ export class CardsPage {
 		},
 		];
 	}
+
+	openEvent(event: Event) {
+                this.navCtrl.push('EventDetailPage', {
+                        event: event
+                });
+        }
 }
