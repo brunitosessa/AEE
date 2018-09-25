@@ -16,26 +16,26 @@
 	</ion-tabs> 
 	-->
 
-	<ion-card *ngFor="let item of cardItems" (click)="openEvent(item)" >
+	<ion-card *ngFor="let event of events" (click)="openEvent(item)" >
 		<div class="imagen">
 			<button ion-button round icon-start color="green"><ion-icon name="checkmark"></ion-icon>Vas al evento</button>
-			<img height="180px" [src]="item.image">
+			<img height="180px" [src]="'https://puntoslash.com.ar/desarrollo/images/eventos/'+ event.id + '.jpg'">
 		</div>
 
 		<ion-card-content>
 			 <ion-card-title>
-				<b>{{item.user.name}}</b>
-				<p>{{item.date}}</p>
+				<b>{{event.nombre}}</b>
+				<p>{{event.fecha}}</p>
 				<ion-fab bottom right>
 					<button ion-fab mini><ion-icon name="pin"></ion-icon></button>
 				</ion-fab>
 			</ion-card-title>
 	
 			<ion-label Stacked>Ubicacion</ion-label>
-			<p><b>{{item.content}}</b></p>
+			<p><b>{{event.direccion}}</b></p>
 		
-			<ion-label Stacked color="green">Estado</ion-label>
-			<p ion-text color="green"><b>{{item.status}}</b></p>
+			<ion-label Stacked [color]="event.asistencia == 1 ? 'green' : 'danger'">Estado</ion-label>
+			<p ion-text [color]="event.asistencia == 1 ? 'green' : 'danger'"><b>{{event.asistencia}}</b></p>
 		</ion-card-content>
 	</ion-card>
 
