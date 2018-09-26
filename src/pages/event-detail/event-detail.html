@@ -1,72 +1,65 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ event.name }}</ion-title>
+    <ion-title>{{ event.nombre }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-	<div class="item-profile" [style.background-image]="'url(' + event.foto + ')'">
-		<button ion-button round icon-start color="green">{{event.nombre}} {{event.apellido}}</button>
+	<div class="event-profile" [style.background-image]="'url(https://puntoslash.com.ar/desarrollo/images/eventos/'+ event.id + '.jpg)'">
+		<button *ngIf="event.asistencia == 0" ion-button round icon-start color="primary">Confirma asistencia</button>
+		<button *ngIf="event.asistencia == 1" ion-button round icon-start color="green"><ion-icon name="checkmark"></ion-icon>Vas al evento</button>
+		<button *ngIf="event.asistencia == 2" ion-button round icon-start color="danger"><ion-icon name="close"></ion-icon>No vas al evento</button>
 	</div>
+	<div padding-top>
+	<div class="event-detail" padding>
+		<ion-segment [(ngModel)]="asistencia">
+			<ion-segment-button value="1">
+				Titulares
+			</ion-segment-button>
+			<ion-segment-button value="3">
+				Suplentes
+			</ion-segment-button>
+			<ion-segment-button value="0">
+				A confirmar
+			</ion-segment-button>
+			<ion-segment-button value="2">
+				No van
+			</ion-segment-button>
+		</ion-segment>
 
-	<div class="item-detail" padding>
-		<ion-label stacked>{{ 'Nombre y apellido' | translate }}</ion-label>
-		<p><b>{{event.nombre}} {{event.apellido}}</b></p>
-
-		<ion-label stacked>{{ 'Correo electrónico' | translate }}</ion-label>
-		<p><b>{{event.email}}</b></p>
-
-		<ion-label stacked>{{ 'Ubicación' | translate }}</ion-label>
-		<p><b>{{event.pais}} - {{event.localidad}}</b></p>
-
-		<ion-label stacked>{{ 'Es miembro desde' | translate }}</ion-label>
-		<p><b>{{event.miembroDesde}}</b></p>
-
-
-		<br>
-
-		<ion-row text-center nowrap>
-			 <ion-col>
-				 <b>{{ 'Eventos públicos en los que participa' | translate }}</b>
-			 </ion-col>
-		 </ion-row>
-		<ion-scroll scrollX="true">
-        		<ion-card *ngFor="let event of events">
-	                        <ion-avatar item-start>
-					<img [src]="'https://puntoslash.com.ar/desarrollo/images/eventos/'+ event.id + '.jpg'">
-				</ion-avatar>
-
-				<ion-card-content>
-					Evento<br>
-					<b>{{ event.nombre }}</b>
-				</ion-card-content>
-			</ion-card>
-		</ion-scroll>
-
-		<ion-row>
-			<ion-col>
-				<button ion-button block color="green" icon-start disabled>
-					<ion-icon name='checkmark'></ion-icon>
-					VOY
-				</button>
-			</ion-col>
-	
-			<ion-col>
-				<button ion-button block color="danger" icon-start>
-					<ion-icon name='close'></ion-icon>
-					NO VOY
-				</button>
-			</ion-col>
-	
-			<ion-col center text-center>
-				<button ion-button block color="secondary" icon-start>
-					<ion-icon name='people'></ion-icon>
-					INVITAR GENTE
-				</button>
-			</ion-col>
-		</ion-row>
+		<div [ngSwitch]="asistencia" *ngFor="let jugador of jugadores">
+			<ion-list *ngSwitchCase="{{jugador.asistencia}}">
+				<h2>jugador.nombre</h2>
+			</ion-list>
+		</div>
+	</div>
 	</div>
 </ion-content>
+
+<ion-footer>
+	<ion-row>
+		<ion-col>
+			<button ion-button block color="green" icon-start [disabled]="event.asistencia == 1 ? true : false">
+				<ion-icon name='checkmark'></ion-icon>
+				VOY
+			</button>
+		</ion-col>
+
+		<ion-col>
+			<button ion-button block color="danger" icon-start [disabled]="event.asistencia == 2 ? true : false">
+				<ion-icon name='close'></ion-icon>
+				NO VOY
+			</button>
+		</ion-col>
+
+		<ion-col center text-center>
+			<button ion-button block color="secondary" icon-start>
+				<ion-icon name='people'></ion-icon>
+				INVITAR GENTE
+			</button>
+		</ion-col>
+	</ion-row>
+</ion-footer>

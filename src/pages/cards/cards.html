@@ -8,22 +8,16 @@
 
 
 <ion-content>
-	<!--
-	 <ion-tabs>
-		<ion-tab [root]="tab1Root" [tabTitle]="tab1Title" tabIcon="calendar"></ion-tab>
-		<ion-tab [root]="tab2Root" [tabTitle]="tab2Title" tabIcon="globe"></ion-tab>
-		<ion-tab [root]="tab3Root" [tabTitle]="tab3Title" tabIcon="lock"></ion-tab>
-	</ion-tabs> 
-	-->
-
-	<ion-card *ngFor="let event of events" (click)="openEvent(item)" >
+	<ion-card *ngFor="let event of events" (click)="openEvent(event)" >
 		<div class="imagen">
-			<button ion-button round icon-start color="green"><ion-icon name="checkmark"></ion-icon>Vas al evento</button>
+			<button *ngIf="event.asistencia == 0" ion-button round icon-start color="primary">Confirma asistencia</button>
+			<button *ngIf="event.asistencia == 1" ion-button round icon-start color="green"><ion-icon name="checkmark"></ion-icon>Vas al evento</button>
+			<button *ngIf="event.asistencia == 2" ion-button round icon-start color="danger"><ion-icon name="close"></ion-icon>No vas al evento</button>
 			<img height="180px" [src]="'https://puntoslash.com.ar/desarrollo/images/eventos/'+ event.id + '.jpg'">
 		</div>
 
 		<ion-card-content>
-			 <ion-card-title>
+			 <ion-card-title text-wrap>
 				<b>{{event.nombre}}</b>
 				<p>{{event.fecha}}</p>
 				<ion-fab bottom right>
@@ -34,8 +28,9 @@
 			<ion-label Stacked>Ubicacion</ion-label>
 			<p><b>{{event.direccion}}</b></p>
 		
-			<ion-label Stacked [color]="event.asistencia == 1 ? 'green' : 'danger'">Estado</ion-label>
-			<p ion-text [color]="event.asistencia == 1 ? 'green' : 'danger'"><b>{{event.asistencia}}</b></p>
+			<ion-label Stacked [color]="event.habilitado == 1 ? 'green' : 'danger'">Estado</ion-label>
+			<p ion-text *ngIf="event.habilitado == 1" color="green"><b>El evento se juega</b></p>
+			<p ion-text *ngIf="event.habilitado == 0" color="danger"><b>El evento se encuentra suspendido</b></p>
 		</ion-card-content>
 	</ion-card>
 

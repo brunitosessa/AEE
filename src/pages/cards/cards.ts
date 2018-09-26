@@ -26,7 +26,7 @@ export class CardsPage {
 
 	getMyEvents() {
 		let loading = this.loadingCtrl.create({
-			content:'Cargando amigos'
+			content:'Cargando eventos'
 		});
 
 		loading.present();

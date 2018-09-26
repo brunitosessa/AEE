@@ -12,6 +12,15 @@ export class EventDetailPage {
 
 	constructor(public navCtrl: NavController, navParams: NavParams, public ws: WsProvider ) {
 		this.event = navParams.get('event')
+		let jugadores = [
+		{
+			"nombre": "Burt Bear",
+			"asistencia": "1"
+		},
+		{
+			"nombre": "Charlie Cheetah",
+			"asistencia": "2"
+		}];
 	}
 
 	ionViewDidLoad() {
