@@ -64,8 +64,8 @@ export class ListMasterPage {
 		this.users.delete(user);
 	}
 
-	openItem(user: User) {
-		this.navCtrl.push('ItemDetailPage', {
+	openUser(user: User) {
+		this.navCtrl.push('UserDetailPage', {
 			user: user
 		});
 	}

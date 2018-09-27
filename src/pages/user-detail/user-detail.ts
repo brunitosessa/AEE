@@ -4,10 +4,10 @@ import { WsProvider } from '../../providers/ws/ws';
 
 @IonicPage()
 @Component({
-  selector: 'page-item-detail',
-  templateUrl: 'item-detail.html'
+  selector: 'page-user-detail',
+  templateUrl: 'user-detail.html'
 })
-export class ItemDetailPage {
+export class UserDetailPage {
 	user: any;
 	events: any=[];
 
@@ -16,7 +16,7 @@ export class ItemDetailPage {
 	}
 
         getPublicEvents() {
-                this.ws.getPublicEvents()
+                this.ws.getMyEvents()
                 .then(data => {
                         this.events = data;
                 });

@@ -11,10 +11,12 @@ import { Event } from '../../models/event';
 })
 export class CardsPage {
 	//La lista de eventos
-	cardItems: any[];
 	events: any;
 
 	constructor(public navCtrl: NavController, public translateService: TranslateService, public loadingCtrl: LoadingController, public ws: WsProvider) {
+	}
+
+	ionViewDidLoad() {
 		this.getMyEvents();
 	}
 
@@ -35,6 +37,8 @@ export class CardsPage {
 		.then(data => {
 			loading.dismiss();
 			this.events = data;
+		}).catch(e => {
+			console.log(e);	
 		});	
 	}
 }

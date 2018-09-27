@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { WsProvider } from '../../providers/ws/ws';
+import { User } from '../../models/user';
 
 @IonicPage()
 @Component({
@@ -8,24 +9,46 @@ import { WsProvider } from '../../providers/ws/ws';
   templateUrl: 'event-detail.html'
 })
 export class EventDetailPage {
+	//Los datos del evento que vienen de la lista de eventos
 	event: any;
+	detail: any;
 
-	constructor(public navCtrl: NavController, navParams: NavParams, public ws: WsProvider ) {
-		this.event = navParams.get('event')
-		let jugadores = [
-		{
-			"nombre": "Burt Bear",
-			"asistencia": "1"
-		},
-		{
-			"nombre": "Charlie Cheetah",
-			"asistencia": "2"
-		}];
+	//Tab por defecto
+	asistencia: any;
+
+	constructor(public navCtrl: NavController, navParams: NavParams, public loadingCtrl: LoadingController, public ws: WsProvider ) {
+		//Trae los datos del evento de la lista de eventos
+		this.event = navParams.get('event');
+
+		//Selecciona la tab de titulares por defecto
+		this.asistencia = 1;
 	}
 
 	ionViewDidLoad() {
+		this.getDetailEventInfo();
 	}
 
 
+	openUser(user: User) {
+		this.navCtrl.push('UserDetailPage', {
+			user: user
+		});
+	}
+
+	getDetailEventInfo() {
+		let loading = this.loadingCtrl.create({
+			content:'Cargando datos del evento'
+		});
+
+		loading.present();
+
+		this.ws.getDetailEventInfo(this.event.id)
+		.then(data => {
+			loading.dismiss();
+			this.detail = data;
+                }).catch(e => {
+                        console.log(e);
+                });
+	}
 
 }

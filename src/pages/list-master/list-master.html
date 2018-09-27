@@ -19,7 +19,7 @@
 
 	<ion-list>
 		<ion-item-sliding *ngFor="let user of users">
-			<button ion-item (click)="openItem(user)">
+			<button ion-item (click)="openUser(user)">
 				<ion-avatar item-start>
 					<img [src]="user.foto" />
 				</ion-avatar>
