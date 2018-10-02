@@ -21,7 +21,7 @@
 		<ion-item-sliding *ngFor="let user of users">
 			<button ion-item (click)="openUser(user)">
 				<ion-avatar item-start>
-					<img [src]="user.foto" />
+					<img [src]="'https://puntoslash.com.ar/desarrollo/images/usuarios/'+user.foto" />
 				</ion-avatar>
 				<h2><b>{{user.nombre}} {{user.apellido}}</b></h2>
 				<p>{{user.email}}</p>

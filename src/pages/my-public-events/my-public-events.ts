@@ -6,10 +6,10 @@ import { Event } from '../../models/event';
 
 @IonicPage()
 @Component({
-  selector: 'page-cards',
-  templateUrl: 'cards.html'
+  selector: 'page-my-public-events',
+  templateUrl: 'my-public-events.html'
 })
-export class CardsPage {
+export class MyPublicEventsPage {
 	//La lista de eventos
 	events: any;
 
@@ -17,7 +17,7 @@ export class CardsPage {
 	}
 
 	ionViewDidLoad() {
-		this.getMyEvents();
+		this.getMyPublicEvents();
 	}
 
 	openEvent(event: Event) {
@@ -26,14 +26,14 @@ export class CardsPage {
                 });
 	}
 
-	getMyEvents() {
+	getMyPublicEvents() {
 		let loading = this.loadingCtrl.create({
-			content:'Cargando eventos'
+			content:'Cargando eventos públicos'
 		});
 
 		loading.present();
 
-		this.ws.getPublicEvents()
+		this.ws.getMyEvents(2)
 		.then(data => {
 			loading.dismiss();
 			this.events = data;

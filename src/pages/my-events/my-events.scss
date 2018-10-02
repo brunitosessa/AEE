@@ -1,0 +1,37 @@
+page-my-events {
+
+.asistencia {
+	position: absolute;
+	right: 20px;
+	bottom: -18px;
+}
+
+.imagen {
+	position: relative;
+}
+
+ion-card-content {
+	position: relative;
+}
+
+.tiempo {
+	position: absolute;
+	left: 20px;
+	bottom: -18px;
+	z-index: 1000;
+}
+
+.tipo {
+	position: absolute;
+	top: 10px;
+	right: -20px;
+	height:22px;
+	width: 80px;
+	background: white;
+	color: #009866;
+	transform: rotate(45deg);
+	text-align: center;
+	font-size: 22px;
+}
+
+}

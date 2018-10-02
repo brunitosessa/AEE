@@ -1,19 +1,36 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'CARDS_TITLE' | translate }}</ion-title>
+    <ion-title>Mis eventos públicos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
+	<ion-searchbar placeholder="Buscar eventos" (ionInput)="searchUsers($event)"></ion-searchbar>
+
 	<ion-card *ngFor="let event of events" (click)="openEvent(event)" >
 		<div class="imagen">
-			<button *ngIf="event.asistencia == 0" ion-button round icon-start color="primary">Confirma asistencia</button>
-			<button *ngIf="event.asistencia == 1" ion-button round icon-start color="green"><ion-icon name="checkmark"></ion-icon>Vas al evento</button>
-			<button *ngIf="event.asistencia == 2" ion-button round icon-start color="danger"><ion-icon name="close"></ion-icon>No vas al evento</button>
 			<img height="180px" [src]="'https://puntoslash.com.ar/desarrollo/images/eventos/'+ event.id + '.jpg'">
+			<div class="tipo">
+				<ion-icon name="lock" *ngIf="event.publico == 0" ></ion-icon>
+			</div>
+			<div class="asistencia">
+				<button *ngIf="event.asistencia == 0" ion-button round icon-start color="primary">Confirma asistencia</button>
+				<button *ngIf="event.asistencia == 1" ion-button round icon-start color="green"><ion-icon name="checkmark"></ion-icon>Vas al evento</button>
+				<button *ngIf="event.asistencia == 2" ion-button round icon-start color="danger"><ion-icon name="close"></ion-icon>No vas al evento</button>
+			</div>
+
+			<div class="tiempo">
+				<button ion-button round icon-only color="primary">
+					<ion-icon name="rainy"></ion-icon>
+				</button>
+				<button ion-button small>
+					30°
+				</button>
+			</div>
+
 		</div>
 
 		<ion-card-content>

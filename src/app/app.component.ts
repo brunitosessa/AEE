@@ -8,23 +8,36 @@ import { FirstRunPage } from '../pages';
 import { Settings } from '../providers';
 
 @Component({
-  template: `<ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Pages</ion-title>
-      </ion-toolbar>
-    </ion-header>
+template: `<ion-menu [content]="content">
+		<ion-header>
+			<ion-item>
+				<ion-avatar item-start>
+					<img src="https://puntoslash.com.ar/desarrollo/images/usuarios/cariverplate77@gmail.com.png">
+				</ion-avatar>
+				<h2>Bruno Sessa</h2>
+				<p>cariverplate77@gmail.com</p>
+			</ion-item>
 
-    <ion-content>
-      <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
-        </button>
-      </ion-list>
-    </ion-content>
+		</ion-header>
 
-  </ion-menu>
-  <ion-nav #content [root]="rootPage"></ion-nav>`
+		<ion-content margin-top>
+			<ion-list *ngFor='let p of pages' (click)="openPage(p)" menuClose>
+				<ion-item>
+					<ion-icon name="{{ p.image }}" item-start></ion-icon>
+					{{p.title}}
+				</ion-item>
+			</ion-list>
+		</ion-content>
+
+		<ion-footer>
+			<button ion-button full icon-start>
+				<ion-icon name="log-out"></ion-icon>
+				Cerrar sesion
+			</button>
+		</ion-footer>
+		
+	</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
   rootPage = FirstRunPage;
@@ -32,14 +45,16 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Tutorial', component: 'TutorialPage' },
-    { title: 'Welcome', component: 'WelcomePage' },
-    { title: 'Tabs', component: 'TabsPage' },
-    { title: 'Cards', component: 'CardsPage' },
+    { title: 'Tutorial', component: 'TutorialPage', image: 'more' },
+    { title: 'Welcome', component: 'WelcomePage', image: 'leaf' },
+    { title: 'Mis eventos', component:'MyEventsTabsPage', image: 'calendar'},
+    { title: 'Eventos públicos', component: 'MyEventsPage', image: 'globe' },
+    { title: 'Amigos', component: 'ListMasterPage', image: 'contacts' },
+    { title: 'Notificaciones', component: 'CardsPage', image: 'notifications' },
+    { title: 'Perfil', component: 'CardsPage', image: 'settings' },
     { title: 'Content', component: 'ContentPage' },
     { title: 'Login', component: 'LoginPage' },
     { title: 'Signup', component: 'SignupPage' },
-    { title: 'Master Detail', component: 'ListMasterPage' },
     { title: 'Menu', component: 'MenuPage' },
     { title: 'Settings', component: 'SettingsPage' },
     { title: 'Search', component: 'SearchPage' }

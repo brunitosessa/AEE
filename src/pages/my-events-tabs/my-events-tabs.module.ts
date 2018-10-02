@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
 
-import { TabsPage } from './tabs';
+import { MyEventsTabsPage } from './my-events-tabs';
 
 @NgModule({
   declarations: [
-    TabsPage,
+    MyEventsTabsPage,
   ],
   imports: [
-    IonicPageModule.forChild(TabsPage),
+    IonicPageModule.forChild(MyEventsTabsPage),
     TranslateModule.forChild()
   ],
   exports: [
-    TabsPage
+    MyEventsTabsPage
   ]
 })
-export class TabsPageModule { }
+export class MyEventsTabsPageModule { }

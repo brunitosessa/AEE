@@ -10,7 +10,7 @@ page-event-detail {
 	}
 
 	//Boton circular con la asistencia al evento
-	.event-profile>button {
+	.asistencia {
 		position: absolute;
 		right: 20px;
 		bottom: -18px;
@@ -19,5 +19,14 @@ page-event-detail {
 
 	.event-detail {
 		background: white;
+		position: relative;
 	}
+
+	.tiempo {
+		position: absolute;
+		left: 20px;
+		bottom: -18px;
+		z-index: 1000;
+	}
+
 }

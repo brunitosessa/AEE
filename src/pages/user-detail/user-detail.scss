@@ -34,15 +34,28 @@ page-user-detail {
 		position: relative;
 	}
 
-	ion-avatar>img {
-		height: 100px;
-	}
-
-	ion-card-content {
-		padding-right: 0px;
-	}
-
 	ion-row {
 		background-color: #f2f2f2;
+	}
+
+	.card-title {
+		position: absolute;
+		top: 36%;
+		font-size: 14px;
+		width: 100%;
+		font-weight: bold;
+		color: #fff;
+		text-align: center;
+		padding-left: 2px;
+		padding-right: 2px;
+	}
+
+	ion-card>img {
+		height: 110px;
+		filter: drop-shadow(8px 8px 10px gray) blur(1px) brightness(0.4);
+	}
+
+	ion-card>button {
+		margin: 0px !important;
 	}
 }

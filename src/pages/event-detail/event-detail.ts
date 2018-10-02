@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { WsProvider } from '../../providers/ws/ws';
 import { User } from '../../models/user';
 
@@ -16,7 +16,7 @@ export class EventDetailPage {
 	//Tab por defecto
 	asistencia: any;
 
-	constructor(public navCtrl: NavController, navParams: NavParams, public loadingCtrl: LoadingController, public ws: WsProvider ) {
+	constructor(public navCtrl: NavController, navParams: NavParams, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public ws: WsProvider ) {
 		//Trae los datos del evento de la lista de eventos
 		this.event = navParams.get('event');
 
@@ -28,13 +28,14 @@ export class EventDetailPage {
 		this.getDetailEventInfo();
 	}
 
-
+	//ABRE LA INFO DE UN USUARIO
 	openUser(user: User) {
 		this.navCtrl.push('UserDetailPage', {
 			user: user
 		});
 	}
 
+	//TRAER LA INFORMACION DETALLADA DEL EVENTO CON EL LOADER
 	getDetailEventInfo() {
 		let loading = this.loadingCtrl.create({
 			content:'Cargando datos del evento'
@@ -49,6 +50,17 @@ export class EventDetailPage {
                 }).catch(e => {
                         console.log(e);
                 });
+	}
+
+	//REFRESHER
+	doRefresher(refresher) {
+		this.getDetailEventInfo();
+		refresher.complete();
+	}
+
+	clickSettings() {
+	let settingsModal = this.modalCtrl.create('EventSettingsPage', { event: this.event });
+		 settingsModal.present();
 	}
 
 }

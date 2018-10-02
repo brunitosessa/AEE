@@ -8,7 +8,7 @@
 
 
 <ion-content>
-	<div class="item-profile" [style.background-image]="'url(https://puntoslash.com.ar/desarrollo/images/usuarios/'+ user.foto + ')'">
+	<div class="item-profile" [style.background-image]="'url(' + user.foto + ')'">
 		<button ion-button round icon-start color="green">{{user.nombre}} {{user.apellido}}</button>
 	</div>
 
@@ -33,17 +33,16 @@
 				 <b>Eventos públicos en los que participa</b>
 			 </ion-col>
 		 </ion-row>
-
 		<ion-scroll scrollX="true">
-        		<ion-card *ngFor="let event of events" text-wrap (click)="openEvent(event)">
-				<img [src]="'https://puntoslash.com.ar/desarrollo/images/eventos/'+ event.id + '.jpg'">
-				<div class="card-title">
-					{{ event.nombre }}
-				</div>
-				<button ion-button small full color="lightblue" *ngIf="event.asistencia == -1">Sumate</button>
-				<button ion-button small full *ngIf="event.asistencia == 0">Confirma asistencia</button>
-				<button ion-button small full color="green" *ngIf="event.asistencia == 1">Vas al evento</button>
-				<button ion-button small full color="danger" *ngIf="event.asistencia == 2">No vas al evento</button>
+        		<ion-card *ngFor="let event of events">
+	                        <ion-avatar item-start>
+					<img [src]="'https://puntoslash.com.ar/desarrollo/images/eventos/'+ event.id + '.jpg'">
+				</ion-avatar>
+
+				<ion-card-content no-wrap>
+					Evento<br>
+					<b>{{ event.nombre }}</b>
+				</ion-card-content>
 			</ion-card>
 		</ion-scroll>
 	</div>
